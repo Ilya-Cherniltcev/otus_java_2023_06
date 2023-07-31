@@ -36,6 +36,7 @@ public class DemoClass {
     @After
     private void afterMethod() {
         System.out.println("Run afterMethod");
+        throw new MyException();
     }
 
     private void someMethodWithoutAnnotation() {
