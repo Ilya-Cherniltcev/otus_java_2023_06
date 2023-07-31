@@ -44,6 +44,7 @@ public class RunTests {
             } catch (Exception e) {
                 countExceptions += 1;
                 System.out.println("------ " + e.toString() + " ------");
+                break;
             }
             try {
                 method.setAccessible(true);
@@ -60,6 +61,10 @@ public class RunTests {
             } catch (Exception e) {
                 countExceptions += 1;
                 System.out.println("------ " + e.toString() + " ------");
+            } finally {
+                // set instance link to null
+                // for working of Garbage Collector
+                temp = null;
             }
         }
         System.out.println("____________________________________________________");
