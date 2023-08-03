@@ -1,6 +1,8 @@
 package ru.otus;
 
+import java.io.Closeable;
 import java.lang.annotation.Annotation;
+import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,15 +62,15 @@ public class RunTests {
             method.invoke(o);
             countPassed += 1;
         } catch (Exception e) {
-            countExceptions += 1;
+            // check method name
+            if (!Arrays.stream(method.getAnnotations()).findAny().get().toString().contains("After")) {
+                countExceptions += 1;
+            } else countPassed += 1;
             System.out.println("------ " + e.toString() + " ------");
         } finally {
-            // check method name
-            if (Arrays.stream(method.getAnnotations()).findAny().get().toString().contains("After")) {
-                // set instance link to null
-                // for working of Garbage Collector
-                o = null;
-            }
+            // set instance link to null
+            // for working of Garbage Collector
+            o = null;
         }
     }
 }
