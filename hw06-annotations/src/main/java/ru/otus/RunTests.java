@@ -30,7 +30,10 @@ public class RunTests {
             // run Before method
             int tempCounter = countExceptions;
             tryInvokeMethod(beforeMethod.get(0), temp);
-            if (countExceptions > tempCounter) break;
+            if (countExceptions > tempCounter) {
+                tryInvokeMethod(afterMethod.get(0), temp);
+                break;
+            }
             // run Test method
             tryInvokeMethod(method, temp);
             // run After method
