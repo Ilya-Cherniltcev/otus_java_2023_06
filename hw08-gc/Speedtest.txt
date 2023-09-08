@@ -1,0 +1,24 @@
+=============  Garbage collector working ============
+HEAP SIZE       RUNNING TIME
+---------------------------------------
+--------  before optimisation ---------
+---------------------------------------
+256 Mb      spend msec:17480, sec:17
+512 Mb      spend msec:13709, sec:13 *** best result ***
+1 Gb        spend msec:13810, sec:13
+2 Gb        spend msec:14722, sec:14
+3 Gb        spend msec:15141, sec:15
+4 Gb        spend msec:16634, sec:16
+5 Gb        spend msec:17396, sec:17
+
+---------------------------------------
+--------  after optimisation ----------
+---------------------------------------
+256 Mb      spend msec:3317, sec:3
+512 Mb      spend msec:3505, sec:3
+1 Gb        spend msec:4086, sec:4
+2 Gb        spend msec:2880, sec:2  *** best result ***
+3 Gb        spend msec:3266, sec:3
+4 Gb        spend msec:4581, sec:4
+5 Gb        spend msec:4893, sec:4
+
